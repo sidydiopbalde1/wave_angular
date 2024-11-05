@@ -1,0 +1,22 @@
+<div class="balance-card">
+    <div class="balance-card-content">
+      <h2>Mon Solde</h2>
+      <button (click)="toggleBalance()" class="toggle-button" aria-label="Toggle balance visibility">
+        <mat-icon>{{ showBalance ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      
+      <div *ngIf="showBalance" class="balance-display">{{ balance.solde | currency:'XOF' }}</div>
+      
+      <!-- QR Code ou Scanner selon l'état de isScanning -->
+      <ng-container *ngIf="!isScanning">
+        <qrcode class="qr-code" [qrdata]="qrCodeValue" [width]="200" [errorCorrectionLevel]="'M'"></qrcode>
+        <button (click)="toggleScanner()" class="scanner-toggle-button">Activer le scanner</button>
+      </ng-container>
+      
+      <ng-container *ngIf="isScanning">
+        <zxing-scanner (scanSuccess)="onScanSuccess($event)"></zxing-scanner>
+        <button (click)="toggleScanner()" class="scanner-toggle-button">Désactiver le scanner</button>
+      </ng-container>
+    </div>
+  </div>
+  

@@ -1,0 +1,31 @@
+<div class="auth-container">
+  <h1>Bienvenue sur votre application Feeling Finance</h1> 
+  <div class="auth-card">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <h2>Code Secret</h2>
+
+      <div class="pin-input-container">
+        <div class="form-group" *ngFor="let digit of [0, 1, 2, 3]; let i = index">
+          <div class="input-icon">
+            <i class="fas fa-key"></i> <!-- Icône de clé -->
+            <input
+              id="code-{{i}}"
+              formControlName="code{{i}}"
+              type="password"
+              required
+              placeholder="."
+              maxlength="1"
+              (input)="onDigitInput($event, i)"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="loginForm.invalid && (loginForm.touched || loginForm.dirty)">
+        <small class="error-message">Veuillez entrer un code valide (4 chiffres).</small>
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
+    </form>
+  </div>
+</div>

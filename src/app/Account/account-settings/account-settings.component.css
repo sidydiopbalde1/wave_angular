@@ -1,0 +1,13 @@
+.account-settings {
+    padding: 20px;
+  }
+  .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .option mat-icon {
+    margin-right: 10px;
+    color: #D32F2F;
+  }
+  

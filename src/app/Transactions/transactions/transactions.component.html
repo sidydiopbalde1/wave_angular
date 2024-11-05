@@ -1,0 +1,22 @@
+<div class="transaction-history">
+  <h3>Dernières transactions</h3>
+  <div class="transaction-list">
+    <div *ngFor="let transaction of transactions" 
+         class="transaction"
+         [ngClass]="{
+           'green-transaction': transaction.type === 'CHARG_FROM_BANK' || transaction.type === 'transfert' || transaction.type === 'from_bank',
+           'red-transaction': transaction.type === 'retrait' || transaction.type === 'CHARG_FROM_WAVE' || transaction.type === 'from_wave' || transaction.type === 'CREDIT' || transaction.type === 'paiement'
+         }"
+         (touchstart)="startSwipe($event)" 
+         (touchend)="endSwipe($event, transaction.id)">
+      
+      <p>Type: {{ transaction.type }} - Montant: {{ transaction.montant | currency }}</p>
+      <small>Date: {{ transaction.date | date:'short' }}</small>
+      <small>Status: {{ transaction.status }}</small>
+      <small>Solde sender: {{ transaction.solde_sender | currency }}</small>
+      <small>Solde receiver: {{ transaction.solde_receiver | currency }}</small>
+    </div>
+  </div>
+</div>
+
+<!-- #2563EB -->

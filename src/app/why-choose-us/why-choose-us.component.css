@@ -1,0 +1,13 @@
+.why-choose-us {
+    padding: 20px;
+  }
+  .benefit {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .benefit mat-icon {
+    color: #D32F2F;
+    margin-right: 10px;
+  }
+  

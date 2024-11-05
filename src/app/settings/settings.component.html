@@ -1,0 +1,17 @@
+<h2>Paramètres</h2>
+<form (ngSubmit)="saveSettings()">
+  <label>
+    <input type="checkbox" [(ngModel)]="notificationEnabled" name="notifications">
+    Activer les notifications
+  </label>
+
+  <div>
+    <label for="theme">Choisissez le thème:</label>
+    <select [(ngModel)]="theme" name="theme">
+      <option value="light">Clair</option>
+      <option value="dark">Sombre</option>
+    </select>
+  </div>
+
+  <button type="submit">Sauvegarder les paramètres</button>
+</form>

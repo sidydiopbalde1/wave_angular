@@ -1,0 +1,22 @@
+<h2 class="title">Liste des banques</h2>
+<ul class="bank-list">
+  <li 
+    class="bank-item" 
+    *ngFor="let bank of banks" 
+    [class.selected]="selectedBankId === bank.id" 
+    (click)="selectBank(bank.id)"
+  >
+    <div class="bank-card">
+      <img [src]="bank.photo" alt="{{ bank.nom_bank }}" class="bank-photo" />
+      <span class="bank-name">{{ bank.nom_bank }}</span>
+    </div>
+  </li>
+</ul>
+
+<!-- Affiche le champ de montant pour la banque sélectionnée -->
+<div *ngIf="selectedBankId" class="amount-form">
+  <label for="amount" class="amount-label">Entrez le montant :</label>
+  <input type="number" id="amount" [(ngModel)]="amount" placeholder="Montant" class="amount-input" />
+  <button (click)="submitAmount()" class="confirm-button">Confirmer</button>
+</div>
+

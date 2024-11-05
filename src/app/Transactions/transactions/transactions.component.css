@@ -1,0 +1,65 @@
+.transaction-history {
+  width: 90%;
+  margin: auto;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #a9e6a9, #1e90ff); /* Gradient vert à bleu */
+}
+
+.transaction {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.transaction.swiped {
+  transform: translateX(-100%); /* Fait disparaître la carte vers la gauche */
+  opacity: 0; /* Rend la carte invisible */
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+small {
+  color: #888;
+}
+
+
+.transaction-list {
+  max-height: 250px; /* Limite la hauteur pour activer le défilement */
+  overflow-y: auto;  /* Active le défilement vertical */
+  border-radius: 5px; /* Coins arrondis */
+}
+
+.transaction {
+  padding: 15px; /* Ajoute du rembourrage autour de chaque transaction */
+  border-bottom: 1px solid #f0f0f0; /* Ligne de séparation entre les transactions */
+  transition: background-color 0.3s; /* Transition douce pour l'effet de survol */
+}
+
+.transaction:hover {
+  background-color: #f9f9f9; /* Change la couleur de fond lors du survol */
+}
+
+.green-transaction {
+  color: green;
+}
+
+.red-transaction {
+  color: red;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .transaction {
+      font-size: 14px;
+  }
+}

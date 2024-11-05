@@ -1,0 +1,53 @@
+<div class="favorite-services">
+  <div class="services-title">Mes Services</div>
+  <div class="services-grid">
+    <div *ngFor="let service of services.slice(0, 6)" 
+         class="service-card" 
+         (click)="handleServiceClick(service)">
+      <mat-icon class="service-icon">{{ service.icon }}</mat-icon>
+      <span class="service-name">{{ service.name }}</span>
+      <span class="service-stats">{{ service.stats }}</span>
+    </div>
+  </div>
+
+  <!-- <button class="see-more-btn" (click)="openAllServicesModal()">
+    Voir tous les services
+  </button> -->
+</div>
+
+<!-- Modal pour l'achat de crédit uniquement -->
+<div *ngIf="isCreditPurchaseModalOpen" class="modal">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close-btn" (click)="closeCreditPurchaseModal()">&times;</span>
+    <app-credit-purchase 
+      [userId]="userId" 
+      (purchaseComplete)="closeCreditPurchaseModal()">
+    </app-credit-purchase>
+  </div>
+</div>
+
+<!-- Modal pour le composant TransferManagement -->
+<div *ngIf="isTransferModalOpen" class="modal" (click)="closeTransferModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close-btn" (click)="closeTransferModal()">&times;</span>
+    <app-transfer-management></app-transfer-management>
+  </div>
+</div>
+
+
+<!-- Modal pour afficher tous les services -->
+<div *ngIf="isAllServicesModalOpen" class="modal allservicemodal"  (click)="closeAllServicesModal()">
+  <div class="modal-content all-services-modal" (click)="$event.stopPropagation()">
+    <span class="close-btn" (click)="closeAllServicesModal()">&times;</span>
+    <h2>Tous les Services</h2>
+    <div class="services-grid">
+      <div *ngFor="let service of services" 
+           class="service-card" 
+           (click)="handleServiceClick(service)">
+        <mat-icon class="service-icon">{{ service.icon }}</mat-icon>
+        <span class="service-name">{{ service.name }}</span>
+        <span class="service-stats">{{ service.stats }}</span>
+      </div>
+    </div>
+  </div>
+</div>

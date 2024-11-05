@@ -1,0 +1,81 @@
+<div class="credit-purchase-container">
+  <!-- Section de recherche -->
+  <div class="search-section">
+    <div class="search-box">
+      <i class="search-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </i>
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        (ngModelChange)="onSearchTermChange()" 
+        placeholder="Rechercher un contact..."
+        class="search-input"
+      />
+    </div>
+  </div>
+
+  <!-- Liste des contacts -->
+  <div class="contacts-list" *ngIf="!isLoading">
+    <div *ngFor="let contact of filteredContacts" 
+         (click)="selectContact(contact)"
+         class="contact-item"
+         [class.selected]="selectedContact?.telephone === contact.telephone">
+      <div class="contact-avatar">
+        {{contact.nom[0]}}{{contact.prenom[0]}}
+      </div>
+      <div class="contact-info">
+        <div class="contact-name">{{contact.nom}} {{contact.prenom}}</div>
+        <div class="contact-phone">{{contact.telephone}}</div>
+      </div>
+      <div class="check-icon" *ngIf="selectedContact?.telephone === contact.telephone">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+    </div>
+
+    <div *ngIf="filteredContacts.length === 0" class="no-results">
+      Aucun contact trouvé
+    </div>
+  </div>
+
+  <div class="loading-spinner" *ngIf="isLoading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+
+  <!-- Section d'achat -->
+  <div class="purchase-section" *ngIf="selectedContact">
+    <div class="selected-contact-info">
+      <div class="contact-avatar large">
+        {{selectedContact.nom[0]}}{{selectedContact.prenom[0]}}
+      </div>
+      <div>
+        <div class="selected-name">{{selectedContact.nom}} {{selectedContact.prenom}}</div>
+        <div class="selected-phone">{{selectedContact.telephone}}</div>
+      </div>
+    </div>
+
+    <div class="amount-input-container">
+      <input 
+        type="number" 
+        [(ngModel)]="montant" 
+        placeholder="Montant à acheter"
+        class="amount-input"
+        min="100"
+      />
+      <span class="currency">FCFA</span>
+    </div>
+
+    <button 
+      class="purchase-button"
+      (click)="buyCredit()"
+      [disabled]="!montant || isProcessing"
+      [class.processing]="isProcessing">
+      <span *ngIf="!isProcessing">Acheter du crédit</span>
+      <span *ngIf="isProcessing">Traitement en cours...</span>
+    </button>
+  </div>
+</div>

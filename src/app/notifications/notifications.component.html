@@ -1,0 +1,8 @@
+<div class="notifications-container">
+    <h3>Notifications</h3>
+    <div *ngFor="let notification of notifications" class="notification-item">
+      <p>{{ notification.message }}</p>
+      <small>{{ notification.date | date: 'short' }}</small>
+    </div>
+  </div>
+  

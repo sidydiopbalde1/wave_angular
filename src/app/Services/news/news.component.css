@@ -1,0 +1,40 @@
+/* notifications.component.css */
+
+.notifications-container {
+  position: absolute; /* Positionne le conteneur de manière absolue */
+  top: 100px; /* Ajustez selon vos besoins */
+  right: 400px; /* Ajustez pour positionner à côté de l'icône de notification */
+  background: linear-gradient(135deg, #dee7de, #419680); /* Couleur de fond */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour le modal */
+  border-radius: 5px; /* Coins arrondis */
+  z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
+  padding: 20px; 
+}
+
+.notifications-list {
+  list-style-type: none; /* Enlève les puces de la liste */
+  padding: 0; /* Enlève le padding */
+  margin: 0; /* Enlève la marge */
+}
+
+.notifications-list li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.notifications-list mat-icon {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal h2 {
+  margin: 0 0 10px; /* Espacement pour le titre */
+}

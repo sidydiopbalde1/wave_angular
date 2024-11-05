@@ -1,0 +1,204 @@
+.credit-purchase-container {
+  background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-section {
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.contacts-list {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+}
+
+.contact-item:hover {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.contact-item.selected {
+  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+  color: white;
+}
+
+.contact-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.contact-avatar.large {
+  width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-name {
+  font-weight: 500;
+}
+
+.contact-phone {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.selected .contact-phone {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.check-icon {
+  color: white;
+}
+
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.purchase-section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.selected-contact-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 12px;
+}
+
+.selected-name {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.selected-phone {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.amount-input-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.amount-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  transition: all 0.3s ease;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.currency {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+}
+
+.purchase-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.purchase-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.purchase-button:disabled {
+  background: linear-gradient(135deg, #94a3b8 0%, #cbd5e1 100%);
+  cursor: not-allowed;
+}
+
+.purchase-button.processing {
+  opacity: 0.8;
+  cursor: wait;
+}

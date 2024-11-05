@@ -1,0 +1,37 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.services-balance-row {
+  display: flex;
+  gap: 10px;
+  width: 90%;
+  margin: auto;
+}
+
+.services-section {
+  flex: 1;
+}
+
+.balance-section {
+  flex: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .services-balance-row {
+      flex-direction: column;
+  }
+
+  .services-section,
+  .balance-section {
+      flex: none;
+      width: 100%;
+  }
+}

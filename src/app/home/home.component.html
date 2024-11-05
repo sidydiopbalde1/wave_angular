@@ -1,0 +1,20 @@
+<header class="header">
+  <img src="{{ userInfo.image }}" alt="Feeling Finance" class="logo">
+  <h1 class="mon-device">Feeling Finance</h1>
+  <nav class="navigation">
+    <button (click)="openMenu()"><mat-icon>menu</mat-icon></button>
+    <button routerLink="/settings"><mat-icon>settings</mat-icon></button>
+    <mat-icon 
+      (mouseenter)="isHovered = true" 
+      (mouseleave)="isHovered = false"
+      (mouseenter)="toggleNotifications()">
+      notifications
+    </mat-icon>
+    <button (click)="logout()">
+      <mat-icon>logout</mat-icon> 
+    </button>
+  </nav>
+</header>
+
+<!-- Intégration du composant Notifications -->
+<app-news *ngIf="isNotificationVisible"></app-news>

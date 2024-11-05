@@ -1,0 +1,87 @@
+<div class="modal-overlay" (click)="closeModal($event)">
+  <div class="modal-container gradient-border" [@slideAnimation]>
+    <div class="modal-header">
+      <h2 class="gradient-text">
+        {{ selectedContact ? 'Montant du transfert' : 'Choisir un contact' }}
+      </h2>
+      <button class="close-btn" (click)="close()">×</button>
+    </div>
+
+    <!-- Contacts List View -->
+    <div class="modal-content" *ngIf="!selectedContact" [@fadeAnimation]>
+      <div class="search-container">
+        <input 
+          type="text" 
+          [formControl]="searchControl"
+          placeholder="Rechercher un contact..."
+          class="search-input gradient-input"
+        >
+        <div class="search-icon">🔍</div>
+      </div>
+
+      <div class="contacts-list">
+        <div 
+          *ngFor="let contact of filteredContacts" 
+          class="contact-item gradient-hover"
+          (click)="selectContact(contact)"
+        >
+          <div class="contact-photo">
+            <img [src]="contact.photo || 'assets/default-avatar.png'" alt="Photo de profil">
+          </div>
+          <div class="contact-info">
+            <h3>{{ contact.prenom }} {{ contact.nom }}</h3>
+            <p>{{ contact.telephone }}</p>
+            <span class="contact-balance" *ngIf="contact.solde !== undefined">
+              Solde: {{ contact.solde | currency:'XOF':'symbol':'1.0-0' }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amount Input View -->
+    <div class="modal-content amount-content" *ngIf="selectedContact" [@fadeAnimation]>
+      <div class="selected-contact">
+        <button class="back-btn" (click)="goBack()">←</button>
+        <div class="contact-photo large">
+          <img [src]="selectedContact.photo || 'assets/default-avatar.png'" alt="Photo de profil">
+        </div>
+        <h3>{{ selectedContact.prenom }} {{ selectedContact.nom }}</h3>
+        <p>{{ selectedContact.telephone }}</p>
+        <p class="contact-balance" *ngIf="selectedContact.solde !== undefined">
+          Solde disponible: {{ selectedContact.solde | currency:'XOF':'symbol':'1.0-0' }}
+        </p>
+      </div>
+
+      <div class="amount-input-container">
+        <div class="currency-symbol">XOF</div>
+        <input 
+          type="number" 
+          [formControl]="amountControl"
+          placeholder="Montant"
+          class="amount-input gradient-input"
+        >
+      </div>
+
+      <!-- Error Messages -->
+      <div *ngIf="amountControl.invalid && (amountControl.dirty || amountControl.touched)" 
+           class="error-messages">
+        <p *ngIf="amountControl.hasError('required')">Le montant est requis.</p>
+        <p *ngIf="amountControl.hasError('min')">Le montant minimal est de 100 XOF.</p>
+        <p *ngIf="amountControl.hasError('max')">Le montant maximal est de 1 000 000 XOF.</p>
+        <p *ngIf="amountControl.hasError('insufficientFunds')">Fonds insuffisants.</p>
+      </div>
+
+      <div class="amount-actions">
+        <button class="cancel-btn" (click)="goBack()">Annuler</button>
+        <button 
+          class="confirm-btn gradient-btn" 
+          [disabled]="!amountControl.valid"
+          (click)="confirmTransfer()"
+        >
+          Confirmer le transfert
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

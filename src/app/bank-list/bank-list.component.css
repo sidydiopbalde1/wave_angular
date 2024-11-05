@@ -1,0 +1,141 @@
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #303e73;
+}
+
+.bank-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.bank-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+    background-color: #f4f4f9;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.bank-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.bank-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.bank-name {
+    font-weight: bold;
+    color: #303e73;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Style de l'élément de formulaire de montant */
+.amount-form {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.amount-form input {
+    margin-right: 10px;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    width: 100px;
+}
+
+.amount-form button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.amount-form button:hover {
+    background-color: #0056b3;
+}
+
+.bank-item.selected {
+    border: 2px solid #007bff; /* Bordure bleue pour la sélection */
+    background-color: #e7f0ff; /* Légère couleur de fond pour la sélection */
+    transform: scale(1.05); /* Agrandir légèrement la banque sélectionnée */
+}
+
+.amount-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f9f9fb; /* Couleur de fond douce */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    /* border: 1px solid #e0e0e0;  */
+}
+
+.amount-label {
+    font-size: 18px;
+    color: #303e73; /* Couleur du texte */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.amount-input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #007bff; /* Bordure bleue */
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%; /* Prendre toute la largeur */
+    max-width: 200px; /* Largeur maximale pour un meilleur affichage */
+}
+
+.amount-input::placeholder {
+    color: #b0b0b0; /* Couleur du placeholder */
+}
+
+.amount-input:focus {
+    border-color: #0056b3; /* Changer la couleur de la bordure au focus */
+}
+
+.confirm-button {
+    padding: 10px 15px;
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation */
+    margin-top: 10px; /* Marge au-dessus du bouton */
+}
+
+.confirm-button:hover {
+    background-color: #0056b3; /* Couleur au survol */
+    transform: scale(1.05); /* Légère augmentation de la taille */
+}

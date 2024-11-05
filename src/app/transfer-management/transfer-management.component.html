@@ -1,0 +1,35 @@
+
+  <div class="transfer-management">
+    <div class="contacts-grid">
+      <div
+        *ngFor="let user of users"
+        class="contact-card"
+        (click)="selectUser(user)"
+      >
+        <div class="contact-info">
+          <img [src]="user.photo" alt="Photo de {{user.nom}}" class="contact-photo" />
+          <div class="contact-details">
+            <h3>{{ user.nom }} {{ user.prenom }}</h3>
+            <p>{{ user.telephone }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Modal pour saisir le montant -->
+    <div *ngIf="isModalOpen" class="modal">
+      <div class="modal-content">
+        <h3>Transfert à {{ selectedUser.nom }} {{ selectedUser.prenom }}</h3>
+        <input
+          type="number"
+          [(ngModel)]="montant"
+          placeholder="Saisir le montant"
+          class="amount-input"
+        />
+        <button (click)="makePayment()">Effectuer le paiement</button>
+        <button (click)="closeModal()" class="close-button">Annuler</button>
+      </div>
+    </div>
+  </div>
+  
+  

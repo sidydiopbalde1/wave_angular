@@ -1,0 +1,12 @@
+<div class="auth-container">
+  <div class="code-container">
+    <h1>Saisissez le code OTP</h1>
+    <form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+      <input formControlName="code" placeholder="Code OTP" />
+      <div *ngIf="codeForm.invalid && (codeForm.touched || codeForm.dirty)">
+        <small class="error-message">Veuillez entrer un code valide (6 chiffres).</small>
+      </div>
+      <button type="submit">Vérifier le code</button>
+    </form>
+  </div>
+</div>
